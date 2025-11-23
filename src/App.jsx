@@ -1,14 +1,24 @@
-import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-// ✅ Cambia esta línea (usa index.css en lugar de App.css)
-import "./index.css";
+import Services from "./pages/Services";
+import Inspection from "./pages/Inspection";
+import Taxes from "./pages/Taxes";
+import Contact from "./pages/Contact";
+import Values from "./pages/Values";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/inspection" element={<Inspection />} />
+        <Route path="/taxes" element={<Taxes />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/values" element={<Values />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

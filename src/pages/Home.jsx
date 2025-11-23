@@ -36,22 +36,28 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formToSend = new FormData();
     Object.keys(formData).forEach((key) => {
       formToSend.append(key, formData[key]);
     });
+
+    formToSend.append("service", selectedService);
+
     await fetch(ZAPIER_WEBHOOK, { method: "POST", body: formToSend });
+
     alert("✅ Thank you! Your information has been submitted successfully.");
     setSelectedService(null);
   };
 
   return (
     <motion.div
+      id="home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-blue-950 text-white flex flex-col items-center justify-center p-6"
+      className="text-white flex flex-col items-center justify-center p-6 pt-28"
     >
-      {/* Header */}
+      {/* HEADER */}
       <div className="text-center mt-6">
         <h1 className="text-4xl font-bold">GM Pro Solution</h1>
         <p className="mt-2 text-gray-300">
@@ -62,15 +68,18 @@ export default function Home() {
         </p>
       </div>
 
-      {/* Hero image */}
+      {/* HERO IMAGE */}
       <img
         src={heroImage}
         alt="Professional"
         className="mx-auto mt-8 rounded-xl shadow-lg w-80 md:w-96"
       />
 
-      {/* Services */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full max-w-6xl">
+      {/* SERVICES */}
+      <div
+        id="inspection"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full max-w-6xl"
+      >
         {[
           {
             name: "Auto Damage Appraisal",
@@ -81,15 +90,18 @@ export default function Home() {
             name: "Tax Services",
             img: taxImage,
             desc: "Efficient and reliable tax filing and advisory.",
+            id: "taxes",
           },
           {
             name: "Notary Services",
             img: notaryImage,
             desc: "Certified notary and document authentication.",
+            id: "notary",
           },
         ].map((service) => (
           <motion.div
             key={service.name}
+            id={service.id}
             whileHover={{ scale: 1.05 }}
             className="bg-white text-gray-900 p-6 rounded-2xl shadow-lg cursor-pointer"
             onClick={() => setSelectedService(service.name)}
@@ -105,7 +117,20 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Modal Form */}
+      {/* CONTACT SECTION */}
+      <div id="contact" className="mt-16 text-center max-w-xl">
+        <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+        <p className="text-gray-300">
+          Reach out for any of our services. We’re here to help you.
+        </p>
+        <p className="text-blue-300 font-semibold mt-2">
+          Phone: (407) 509-9595  
+          <br />
+          Email: gmprosolution@gmail.com
+        </p>
+      </div>
+
+      {/* MODAL FORM */}
       <AnimatePresence>
         {selectedService && (
           <motion.div
@@ -120,6 +145,7 @@ export default function Home() {
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* CLIENT INFO */}
                 <div>
                   <h3 className="font-semibold mb-1">📋 Client Information</h3>
                   <input
@@ -144,6 +170,7 @@ export default function Home() {
                   />
                 </div>
 
+                {/* VEHICLE INFO */}
                 {selectedService === "Auto Damage Appraisal" && (
                   <>
                     <h3 className="font-semibold mb-1">🚗 Vehicle Information</h3>
@@ -192,12 +219,15 @@ export default function Home() {
                   </>
                 )}
 
+                {/* MESSAGE */}
                 <textarea
                   name="message"
                   onChange={handleChange}
                   placeholder="Additional Message"
                   className="w-full border p-2 rounded mb-2"
                 />
+
+                {/* FILE UPLOAD */}
                 <div>
                   <label className="block font-semibold mb-1">
                     Upload documents or photos:
@@ -210,6 +240,7 @@ export default function Home() {
                   />
                 </div>
 
+                {/* BUTTONS */}
                 <div className="flex justify-between mt-6">
                   <button
                     type="button"
@@ -231,11 +262,10 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Spanish notice */}
+      {/* FOOTER */}
       <p className="mt-8 text-blue-200 italic">Hablamos Español — Contáctenos hoy.</p>
 
-      {/* Footer */}
-      <footer className="bg-blue-950 text-white text-center py-6 mt-12">
+      <footer className="bg-blue-950 text-white text-center py-6 mt-12 w-full">
         <p className="text-sm">
           © {new Date().getFullYear()} GM Pro Solution. All rights reserved.
         </p>

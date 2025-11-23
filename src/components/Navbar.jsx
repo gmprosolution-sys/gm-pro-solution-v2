@@ -1,33 +1,15 @@
 import React from "react";
-import { useLanguage } from "../context/LanguageContext";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const { t } = useLanguage();
-
+export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-[#020c1b] text-white shadow-md">
-      <h1 className="text-xl font-bold">GM Pro Solution</h1>
-      <div className="flex items-center space-x-6 text-sm">
-        <a href="#home" className="hover:text-blue-400">
-          {t.home}
-        </a>
-        <a href="#services" className="hover:text-blue-400">
-          {t.services}
-        </a>
-        <a href="#values" className="hover:text-blue-400">
-          {t.values}
-        </a>
-        <a
-          href="#contact"
-          className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          {t.contactUs}
-        </a>
-        <LanguageSwitcher />
+    <nav className="w-full bg-[#0A1A2F] py-4 px-8 flex justify-between items-center text-white fixed top-0 left-0 z-50 shadow-lg">
+      <h1 className="text-2xl font-bold">GM Pro Solution</h1>
+
+      <div className="flex gap-10 text-lg font-semibold">
+        <Link to="/">Home</Link>
+        <Link to="/contact">Contact</Link>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
