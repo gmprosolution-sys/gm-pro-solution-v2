@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 node_modules/
 dist/
 .DS_Store
 *.local
 .vercel/
+=======
+.vercel
+>>>>>>> 6c5515b99044498b761a4481d496e840d47c83af
