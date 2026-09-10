@@ -6,8 +6,7 @@ import heroImage from "/images/business-man-watch.jpg";
 import inspectionImage from "/images/inspection.jpg";
 import taxImage from "/images/tax.jpg";
 import notaryImage from "/images/notary.jpg";
-
-const ZAPIER_WEBHOOK = "https://hooks.zapier.com/hooks/catch/25300476/usph5ce/";
+import submitLead from "../lib/submitLead";
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState(null);
@@ -36,17 +35,18 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formToSend = new FormData();
-    Object.keys(formData).forEach((key) => {
-      formToSend.append(key, formData[key]);
-    });
-    await fetch(ZAPIER_WEBHOOK, { method: "POST", body: formToSend });
-    alert("✅ Thank you! Your information has been submitted successfully.");
+    try {
+      await submitLead({ formType: selectedService, ...formData });
+      alert("✅ Thank you! Your information has been submitted successfully.");
+    } catch (error) {
+      alert("⚠️ Something went wrong sending your request. Please try again or call us.");
+    }
     setSelectedService(null);
   };
 
   return (
     <motion.div
+      id="home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="min-h-screen bg-blue-950 text-white flex flex-col items-center justify-center p-6"

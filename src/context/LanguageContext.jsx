@@ -18,6 +18,25 @@ const translations = {
     email: "Correo electrónico",
     message: "Mensaje",
     send: "Enviar",
+
+    // Contact section
+    contactTitle: "Contáctanos",
+    contactSubtitle: "Escríbenos y te responderemos lo antes posible.",
+
+    // Services section
+    servicesTitle: "Nuestros Servicios",
+    serviceAppraisalDesc: "Inspecciones y valoraciones profesionales de vehículos.",
+    serviceTaxDesc: "Preparación de impuestos eficiente y confiable.",
+    serviceNotaryDesc: "Servicios de notaría certificados.",
+
+    // Values section
+    ourValues: "Nuestros Valores",
+    trust: "Confianza",
+    trustDesc: "Construimos relaciones basadas en honestidad y transparencia.",
+    efficiency: "Eficiencia",
+    efficiencyDesc: "Resultados rápidos y precisos en cada servicio.",
+    professionalism: "Profesionalismo",
+    professionalismDesc: "Atención experta y dedicada en cada proyecto.",
   },
   en: {
     title: "Welcome to GM Pro Solution",
@@ -34,6 +53,25 @@ const translations = {
     email: "Email",
     message: "Message",
     send: "Send",
+
+    // Contact section
+    contactTitle: "Contact Us",
+    contactSubtitle: "Send us a message and we'll get back to you as soon as possible.",
+
+    // Services section
+    servicesTitle: "Our Services",
+    serviceAppraisalDesc: "Professional vehicle inspections and appraisals.",
+    serviceTaxDesc: "Efficient and reliable tax preparation.",
+    serviceNotaryDesc: "Certified notary services.",
+
+    // Values section
+    ourValues: "Our Values",
+    trust: "Trust",
+    trustDesc: "We build relationships based on honesty and transparency.",
+    efficiency: "Efficiency",
+    efficiencyDesc: "Fast, accurate results in every service.",
+    professionalism: "Professionalism",
+    professionalismDesc: "Expert, dedicated attention on every project.",
   },
 };
 

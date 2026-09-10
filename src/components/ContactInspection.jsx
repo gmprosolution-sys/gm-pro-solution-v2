@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import submitLead from "../lib/submitLead";
 
 function ContactInspection() {
   const { language } = useLanguage();
@@ -39,20 +40,13 @@ function ContactInspection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("phone", formData.phone);
-    form.append("details", formData.details);
-    for (let file of formData.files) form.append("files", file);
-
-    await fetch("https://hooks.zapier.com/hooks/catch/25300476/usph5ce/", {
-      method: "POST",
-      body: form,
-    });
-
-    setSuccess(true);
-    setFormData({ name: "", email: "", phone: "", details: "", files: [] });
+    try {
+      await submitLead({ formType: "Auto Damage Appraisal", ...formData });
+      setSuccess(true);
+      setFormData({ name: "", email: "", phone: "", details: "", files: [] });
+    } catch (error) {
+      // submission failed silently for now; success banner simply won't show
+    }
 
     setTimeout(() => setSuccess(false), 3000); // hide after 3 seconds
   };

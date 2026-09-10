@@ -1,5 +1,5 @@
 import React from 'react'
-import FormTemplate from '../components/FormTemplate'
+import FormTemplate from './components/FormTemplate'
 
 const fields = [
   {name:'name', label:'Name', type:'text', required:true},

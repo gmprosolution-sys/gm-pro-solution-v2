@@ -1,14 +1,21 @@
 import React from "react";
+import { LanguageProvider } from "./context/LanguageContext";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-// ✅ Cambia esta línea (usa index.css en lugar de App.css)
-import "./index.css";
+import About from "./About";
+import Services from "./pages/Services";
+import Values from "./pages/Values";
+import Contact from "./Contact";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <LanguageProvider>
+      <Navbar />
       <Home />
-    </div>
+      <About />
+      <Services />
+      <Values />
+      <Contact />
+    </LanguageProvider>
   );
 }
-
-export default App;

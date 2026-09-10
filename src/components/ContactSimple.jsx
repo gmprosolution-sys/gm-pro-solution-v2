@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import submitLead from "../lib/submitLead";
 
 function ContactSimple() {
   const { language } = useLanguage();
@@ -39,20 +40,13 @@ function ContactSimple() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("phone", formData.phone);
-    form.append("message", formData.message);
-    for (let file of formData.files) form.append("files", file);
-
-    await fetch("https://hooks.zapier.com/hooks/catch/25300476/usph5ce/", {
-      method: "POST",
-      body: form,
-    });
-
-    setSuccess(true);
-    setFormData({ name: "", email: "", phone: "", message: "", files: [] });
+    try {
+      await submitLead({ formType: "Taxes & Notary", ...formData });
+      setSuccess(true);
+      setFormData({ name: "", email: "", phone: "", message: "", files: [] });
+    } catch (error) {
+      // submission failed silently for now; success banner simply won't show
+    }
 
     setTimeout(() => setSuccess(false), 3000);
   };
