@@ -11,6 +11,7 @@ const translations = {
     contactTaxNotary: "Servicios de Notaría y Taxes",
     contactTax: "Preparación de Impuestos",
     contactNotary: "Servicios de Notaría",
+    contactDocs: "Trámites y Documentos",
     contactUs: "Contáctanos",
     home: "Inicio",
     services: "Servicios",
@@ -29,7 +30,8 @@ const translations = {
     servicesTitle: "Nuestros Servicios",
     serviceAppraisalDesc: "Inspecciones y valoraciones profesionales de vehículos.",
     serviceTaxDesc: "Preparación de impuestos eficiente y confiable.",
-    serviceNotaryDesc: "Servicios de notaría certificados.",
+    serviceNotaryDesc: "Servicios de notaría certificados, con licencia presencial y de Notarización Remota en Línea (RON).",
+    serviceDocsDesc: "Gestión de trámites, traducciones y documentación legal para individuos y negocios.",
 
     // Values section
     ourValues: "Nuestros Valores",
@@ -48,6 +50,7 @@ const translations = {
     contactTaxNotary: "Notary & Tax Services",
     contactTax: "Tax Preparation",
     contactNotary: "Notary Services",
+    contactDocs: "Paperwork & Documents",
     contactUs: "Contact Us",
     home: "Home",
     services: "Services",
@@ -66,7 +69,8 @@ const translations = {
     servicesTitle: "Our Services",
     serviceAppraisalDesc: "Professional vehicle inspections and appraisals.",
     serviceTaxDesc: "Efficient and reliable tax preparation.",
-    serviceNotaryDesc: "Certified notary services.",
+    serviceNotaryDesc: "Certified notary services, licensed for both in-person and Remote Online Notarization (RON).",
+    serviceDocsDesc: "Handling of paperwork, translations, and legal documentation for individuals and businesses.",
 
     // Values section
     ourValues: "Our Values",
