@@ -1,9 +1,10 @@
 import CONFIG, { isGetformConfigured } from "../config";
 
 /**
- * Sends form data to Zapier, and additionally to Getform once a real
- * GETFORM_URL is set in src/config.js. Accepts a plain object; values can be
- * strings, a single File, or an array of Files.
+ * Sends form data to Zapier, and additionally to Forminit (legacy raw POST
+ * endpoint, same shape as the old getform.io API) once a real GETFORM_URL is
+ * set in src/config.js. Accepts a plain object; values can be strings, a
+ * single File, or an array of Files.
  */
 export async function submitLead(data) {
   const formData = new FormData();
