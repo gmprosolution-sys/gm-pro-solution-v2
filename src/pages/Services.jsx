@@ -8,12 +8,13 @@ const Services = () => {
     { icon: "🚗", title: t.contactAppraisal, desc: t.serviceAppraisalDesc },
     { icon: "🧾", title: t.contactTax, desc: t.serviceTaxDesc },
     { icon: "📝", title: t.contactNotary, desc: t.serviceNotaryDesc },
+    { icon: "📄", title: t.contactDocs, desc: t.serviceDocsDesc },
   ];
 
   return (
     <section id="services" className="py-20 bg-[#04142c] text-white text-center">
       <h2 className="text-3xl font-bold mb-10">{t.servicesTitle}</h2>
-      <div className="grid md:grid-cols-3 gap-8 px-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-10">
         {services.map((service, index) => (
           <div key={index} className="bg-[#0b264b] p-6 rounded-2xl shadow-lg">
             <div className="text-4xl mb-4">{service.icon}</div>
