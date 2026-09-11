@@ -6,8 +6,8 @@ const Services = () => {
 
   const services = [
     { icon: "🚗", title: t.contactAppraisal, desc: t.serviceAppraisalDesc },
-    { icon: "🧾", title: t.contactTaxNotary, desc: t.serviceTaxDesc },
-    { icon: "📝", title: t.contactTaxNotary, desc: t.serviceNotaryDesc },
+    { icon: "🧾", title: t.contactTax, desc: t.serviceTaxDesc },
+    { icon: "📝", title: t.contactNotary, desc: t.serviceNotaryDesc },
   ];
 
   return (
