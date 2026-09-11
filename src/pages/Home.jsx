@@ -35,26 +35,12 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     try {
       await submitLead({ formType: selectedService, ...formData });
       alert("✅ Thank you! Your information has been submitted successfully.");
     } catch (error) {
       alert("⚠️ Something went wrong sending your request. Please try again or call us.");
     }
-=======
-
-    const formToSend = new FormData();
-    Object.keys(formData).forEach((key) => {
-      formToSend.append(key, formData[key]);
-    });
-
-    formToSend.append("service", selectedService);
-
-    await fetch(ZAPIER_WEBHOOK, { method: "POST", body: formToSend });
-
-    alert("✅ Thank you! Your information has been submitted successfully.");
->>>>>>> 6c5515b99044498b761a4481d496e840d47c83af
     setSelectedService(null);
   };
 

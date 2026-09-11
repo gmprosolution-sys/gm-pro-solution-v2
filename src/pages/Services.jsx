@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -24,18 +23,7 @@ const Services = () => {
         ))}
       </div>
     </section>
-=======
-export default function Services() {
-  return (
-    <div className="text-white p-10">
-      <h1 className="text-4xl font-bold">Services Page</h1>
-    </div>
->>>>>>> 6c5515b99044498b761a4481d496e840d47c83af
   );
 }
 
-<<<<<<< HEAD
 export default Services;
-=======
- 
->>>>>>> 6c5515b99044498b761a4481d496e840d47c83af
